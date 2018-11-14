@@ -8,7 +8,7 @@
     tools:context=".elevator_game">
 
     <ImageView
-        android:id="@+id/exlapain_background"
+        android:id="@+id/game_background"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:scaleType="fitXY"
@@ -63,20 +63,6 @@
         android:visibility="invisible"
         />
 
-    <ImageView
-        android:id="@+id/explain2_background"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:scaleType="fitXY"
-        android:background="#00000000"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/wharfloor_bg"
-
-        android:visibility="invisible"
-        />
 
     <ImageButton
         android:id="@+id/explain2_up"
@@ -211,21 +197,7 @@
     />
 
     <ImageView
-        android:id="@+id/game_background"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:scaleType="fitXY"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/wharfloor_bg_1"
-
-        android:visibility="invisible"
-        />
-
-    <ImageView
-        android:id="@+id/game_bear"
+        android:id="@+id/game_anim"
         android:layout_width="213dp"
         android:layout_height="282dp"
         android:scaleType="fitXY"
@@ -234,7 +206,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
 
-        app:srcCompat="@drawable/bear_anim"
         android:visibility="invisible"
         />
 
@@ -463,15 +434,16 @@
         />
 
     <ImageView
-        android:id="@+id/game_mirror_ball"
-        android:layout_width="213dp"
-        android:layout_height="227dp"
-        android:scaleType="fitXY"
+        android:id="@+id/mirrorballanim"
+        android:layout_width="282dp"
+        android:layout_height="300dp"
+        app:srcCompat="@drawable/mirror_ball_anim"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/bear_anim"
+
         android:visibility="invisible"
         />
+
 </android.support.constraint.ConstraintLayout>

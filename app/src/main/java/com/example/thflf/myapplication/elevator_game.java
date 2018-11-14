@@ -1,8 +1,10 @@
 package com.example.thflf.myapplication;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.graphics.drawable.AnimationDrawable;
+import android.media.MediaPlayer;
 import android.os.Handler;
 import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
@@ -22,16 +24,17 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class elevator_game extends AppCompatActivity {
-    ImageView exbg; TextView extxt;  ImageButton exnext;
-    ImageView exbg2; ImageButton exup; ImageButton exdown; ImageButton exstop;  ImageButton exnext2;
+    ImageView gamebg; TextView extxt;  ImageButton exnext;
+    ImageButton exup; ImageButton exdown; ImageButton exstop;  ImageButton exnext2;
     ImageView startfloorbg; TextView startfloortxt;
-    ImageView gamebg; ImageView gamebear;
+    ImageView gameanim;
     ImageButton[] ansbtn; TextView[] anstxt;
-    ImageView gamemirrorball;
+    ImageView mirrorballanim;
     AnimationDrawable animdrawble;
     Timer timer;
     int CurFloor;
     int[] answers;
+    MediaPlayer effect_sound;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,11 +42,10 @@ public class elevator_game extends AppCompatActivity {
         setContentView(R.layout.activity_elevator_game);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE );
 
-        exbg = (ImageView)findViewById(R.id.exlapain_background);
+        gamebg = (ImageView)findViewById(R.id.game_background);
         extxt   = (TextView)findViewById(R.id.explain_text);
         exnext = (ImageButton)findViewById(R.id.explain_nextbutton);
 
-        exbg2 = (ImageView)findViewById(R.id.explain2_background);
         exup = (ImageButton)findViewById(R.id.explain2_up);
         exdown = (ImageButton)findViewById(R.id.explain2_down);
         exstop = (ImageButton)findViewById(R.id.explain2_stop);
@@ -52,8 +54,7 @@ public class elevator_game extends AppCompatActivity {
         startfloorbg = (ImageView)findViewById(R.id.game_startfloor_background);
         startfloortxt = (TextView)findViewById(R.id.game_startfloor_text);
 
-        gamebg = (ImageView)findViewById(R.id.game_background);
-        gamebear = (ImageView)findViewById(R.id.game_bear);
+        gameanim = (ImageView)findViewById(R.id.game_anim);
 
         ansbtn = new ImageButton[6]; anstxt = new TextView[6];
         ansbtn[0] = (ImageButton)findViewById(R.id.game_answer_1);
@@ -69,36 +70,37 @@ public class elevator_game extends AppCompatActivity {
         ansbtn[5] = (ImageButton)findViewById(R.id.game_answer_6);
         anstxt[5] = (TextView)findViewById(R.id.game_answer_6_text);
 
-        gamemirrorball = (ImageView)findViewById(R.id.game_mirror_ball);
+        mirrorballanim = (ImageView)findViewById(R.id.mirrorballanim);
 
-        exbg.setVisibility(View.VISIBLE);
+        gamebg.setVisibility(View.VISIBLE);
         extxt.setVisibility(View.VISIBLE);
         exnext.setVisibility(View.VISIBLE);
 
+        effect_sound = MediaPlayer.create(this, R.raw.elevator_up);
     }
 
     public void onClickButton(View v)
     {
         switch (v.getId()) {
             case R.id.explain_nextbutton:
-                exbg.setVisibility(View.INVISIBLE);
+                gamebg.setImageResource(R.drawable.wharfloor_bg);
                 extxt.setVisibility(View.INVISIBLE);
                 exnext.setVisibility(View.INVISIBLE);
 
-                exbg2.setVisibility(View.VISIBLE);
                 exup.setVisibility(View.VISIBLE);
                 exdown.setVisibility(View.VISIBLE);
                 exstop.setVisibility(View.VISIBLE);
                 exnext2.setVisibility(View.VISIBLE);
 
-                exstop.setImageResource(R.drawable.stop0002);
                 break;
 
             case R.id.explain2_up:
                 exup.setImageResource(R.drawable.up0002);
                 exdown.setImageResource(R.drawable.up0001);
                 exstop.setImageResource(R.drawable.stop0001);
-                //상승음 재생
+                effect_sound.stop();
+                effect_sound = MediaPlayer.create(this, R.raw.elevator_up);
+                effect_sound.start();
                 break;
 
             case R.id.explain2_down:
@@ -106,13 +108,18 @@ public class elevator_game extends AppCompatActivity {
                 exup.setImageResource(R.drawable.up0001);
                 exstop.setImageResource(R.drawable.stop0001);
                 //하강음 재생
+                effect_sound.stop();
+                effect_sound = MediaPlayer.create(this, R.raw.elevator_down);
+                effect_sound.start();
                 break;
 
             case R.id.explain2_stop:
                 exup.setImageResource(R.drawable.up0001);
                 exdown.setImageResource(R.drawable.up0001);
                 exstop.setImageResource(R.drawable.stop0002);
-                //재생 중단
+                effect_sound.stop();
+                effect_sound = MediaPlayer.create(this, R.raw.elevator_stop);
+                effect_sound.start();
                 break;
 
             case R.id.explain_nextbutton2:
@@ -131,7 +138,7 @@ public class elevator_game extends AppCompatActivity {
                 }
                 else
                 {//오답
-
+                    falseF(true);
                 }
                 break;
 
@@ -142,7 +149,7 @@ public class elevator_game extends AppCompatActivity {
                 }
                 else
                 {//오답
-
+                    falseF(true);
                 }
                 break;
 
@@ -153,7 +160,7 @@ public class elevator_game extends AppCompatActivity {
                 }
                 else
                 {//오답
-
+                    falseF(true);
                 }
                 break;
 
@@ -164,7 +171,7 @@ public class elevator_game extends AppCompatActivity {
                 }
                 else
                 {//오답
-
+                    falseF(true);
                 }
                 break;
 
@@ -175,7 +182,7 @@ public class elevator_game extends AppCompatActivity {
                 }
                 else
                 {//오답
-
+                    falseF(true);
                 }
                 break;
 
@@ -186,7 +193,7 @@ public class elevator_game extends AppCompatActivity {
                 }
                 else
                 {//오답
-
+                    falseF(true);
                 }
                 break;
         }
@@ -199,6 +206,7 @@ public class elevator_game extends AppCompatActivity {
         boolean startFloorOn = true;
         long startTime;
         int i;
+
 
         //현재 층 랜덤 선택 후 깜빡임
         gamestartfloorF(true);
@@ -217,7 +225,7 @@ public class elevator_game extends AppCompatActivity {
             public void run() {
                 gameMoveElevator(true);
             }
-        }, 6000);
+        }, 7000);
 
         //현재 층 맞추기
         new Handler().postDelayed(new Runnable() {
@@ -225,7 +233,7 @@ public class elevator_game extends AppCompatActivity {
             public void run() {
                gameAnswer(true);
             }
-        }, 12000);
+        }, 22000);
 
         //게임 리셋 후 다시시작 버튼 활성화
     }
@@ -251,7 +259,6 @@ public class elevator_game extends AppCompatActivity {
             @Override
             public void run() {
                 startfloortxt.clearAnimation();
-                exbg2.setVisibility(View.INVISIBLE);
                 startfloorbg.setVisibility(View.INVISIBLE);
                 startfloortxt.setVisibility(View.INVISIBLE);
             }
@@ -261,19 +268,20 @@ public class elevator_game extends AppCompatActivity {
     private void gameBeartoelevator(boolean bool) {
 
         //곰이 엘리베이터로 들어감
-        gamebg.setVisibility(View.VISIBLE);
-        gamebear.setVisibility(View.VISIBLE);
-        animdrawble = (AnimationDrawable) gamebear.getDrawable();
+        gamebg.setImageResource(R.drawable.wharfloor_bg_1);
+        gameanim.setImageResource(R.drawable.bear_anim);
+        gameanim.setVisibility(View.VISIBLE);
+        animdrawble = (AnimationDrawable) gameanim.getDrawable();
         animdrawble.start();
 
         Animation scaleanim = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.scaletosmall);
-        gamebear.startAnimation(scaleanim);
+        gameanim.startAnimation(scaleanim);
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
                 animdrawble.stop();
-                gamebear.clearAnimation();
-                gamebear.setVisibility(View.INVISIBLE);
+                gameanim.clearAnimation();
+                gameanim.setVisibility(View.INVISIBLE);
             }
         },3000);
     }
@@ -290,23 +298,51 @@ public class elevator_game extends AppCompatActivity {
             {
                 if (CurFloor == 9)
                 {
-                    i--;
-                    continue;
+                    --i;
                 }
-                CurFloor += 1;
-                //상승음 재생
+                else
+                {
+                    CurFloor += 1;
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            //상승음 재생
+                            effect_sound.stop();
+                            effect_sound = MediaPlayer.create(elevator_game.this, R.raw.elevator_up);
+                            effect_sound.start();
+                        }
+                    }, i * 3000 + 1);
+                }
             }
             else
             {
                 if (CurFloor == 1)
                 {
-                    i--;
-                    continue;
+                    --i;
                 }
-                CurFloor -= 1;
-                //하강음 재생
+                else {
+                    CurFloor -= 1;
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            //하강음 재생
+                            effect_sound.stop();
+                            effect_sound = MediaPlayer.create(elevator_game.this, R.raw.elevator_down);
+                            effect_sound.start();
+                        }
+                    }, i * 3000 + 1);
+                }
             }
         }
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                //정지음 재생
+                effect_sound.stop();
+                effect_sound = MediaPlayer.create(elevator_game.this, R.raw.elevator_stop);
+                effect_sound.start();
+            }
+        }, 15000);
     }
 
     private  void gameAnswer(boolean bool)
@@ -360,20 +396,19 @@ public class elevator_game extends AppCompatActivity {
         for (int i = 0; i < 6; i++)
             answers[i] = answers_[answers[i]];
 
-        gamebear.setVisibility(View.VISIBLE);
-        animdrawble = (AnimationDrawable) gamebear.getDrawable();
+        gameanim.setVisibility(View.VISIBLE);
+        animdrawble = (AnimationDrawable) gameanim.getDrawable();
         animdrawble.start();
 
         Animation scaleanim = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.scaletolarge);
-        gamebear.startAnimation(scaleanim);
+        gameanim.startAnimation(scaleanim);
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
                 animdrawble.stop();
-                gamebear.clearAnimation();
-                gamebear.setVisibility(View.INVISIBLE);
-                gamebg.setVisibility(View.INVISIBLE);
-                exbg2.setVisibility(View.VISIBLE);
+                gameanim.clearAnimation();
+                gameanim.setVisibility(View.INVISIBLE);
+                gamebg.setImageResource(R.drawable.wharfloor_bg);
                 for(int i = 0; i < 6; i++)
                 {
                     ansbtn[i].setVisibility(View.VISIBLE);
@@ -387,30 +422,85 @@ public class elevator_game extends AppCompatActivity {
 
     private void correctF(boolean bool)
     {
-        gamemirrorball.setVisibility(View.VISIBLE);
-        animdrawble = (AnimationDrawable) gamemirrorball.getDrawable();
+        for(int i = 0; i < 6; i++)
+        {
+            ansbtn[i].setVisibility(View.INVISIBLE);
+            anstxt[i].setVisibility(View.INVISIBLE);
+        }
+        animdrawble = (AnimationDrawable) mirrorballanim.getDrawable();
         animdrawble.start();
+        mirrorballanim.setVisibility(View.VISIBLE);
+        effect_sound.stop();
+        effect_sound = MediaPlayer.create(elevator_game.this, R.raw.o);
+        effect_sound.start();
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
                 animdrawble.stop();
-                gamemirrorball.setVisibility(View.INVISIBLE);
+                mirrorballanim.setVisibility(View.INVISIBLE);
+
+                startfloorbg.setVisibility(View.VISIBLE);
+                startfloortxt.setVisibility(View.VISIBLE);
+                startfloortxt.setText(Integer.toString(CurFloor));
+
+                Animation startFloorAnim = new AlphaAnimation(0.0f, 2.0f);
+                startFloorAnim.setDuration(300); //You can manage the time of the blink with this parameter
+                startFloorAnim.setStartOffset(0);
+                startFloorAnim.setRepeatMode(Animation.REVERSE);
+                startFloorAnim.setRepeatCount(12);
+                startfloortxt.startAnimation(startFloorAnim);
             }
-        },1000);
+        },550);
 
 
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                for(int i = 0; i < 6; i++)
-                {
-                    ansbtn[i].setVisibility(View.INVISIBLE);
-                    anstxt[i].setVisibility(View.INVISIBLE);
-                }
-                exbg2.setVisibility(View.INVISIBLE);
+                startfloortxt.clearAnimation();
+                startfloorbg.setVisibility(View.INVISIBLE);
+                startfloortxt.setVisibility(View.INVISIBLE);
                 gameMainF(true);
             }
-        },3000);
+        },4000);
+    }
+
+    private void falseF(boolean bool)
+    {
+        for(int i = 0; i < 6; i++)
+        {
+            ansbtn[i].setVisibility(View.INVISIBLE);
+            anstxt[i].setVisibility(View.INVISIBLE);
+        }
+        effect_sound.stop();
+        effect_sound = MediaPlayer.create(elevator_game.this, R.raw.x);
+        effect_sound.start();
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+
+                startfloorbg.setVisibility(View.VISIBLE);
+                startfloortxt.setVisibility(View.VISIBLE);
+                startfloortxt.setText(Integer.toString(CurFloor));
+
+                Animation startFloorAnim = new AlphaAnimation(0.0f, 2.0f);
+                startFloorAnim.setDuration(300); //You can manage the time of the blink with this parameter
+                startFloorAnim.setStartOffset(0);
+                startFloorAnim.setRepeatMode(Animation.REVERSE);
+                startFloorAnim.setRepeatCount(12);
+                startfloortxt.startAnimation(startFloorAnim);
+            }
+        },550);
+
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                startfloortxt.clearAnimation();
+                startfloorbg.setVisibility(View.INVISIBLE);
+                startfloortxt.setVisibility(View.INVISIBLE);
+                gameMainF(true);
+            }
+        },4000);
     }
 
     private class DelayThread extends Thread
