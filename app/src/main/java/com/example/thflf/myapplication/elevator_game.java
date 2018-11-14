@@ -42,47 +42,45 @@ public class elevator_game extends AppCompatActivity {
         setContentView(R.layout.activity_elevator_game);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE );
 
-        gamebg = (ImageView)findViewById(R.id.game_background);
-        extxt   = (TextView)findViewById(R.id.explain_text);
-        exnext = (ImageButton)findViewById(R.id.explain_nextbutton);
+        gamebg = (ImageView)findViewById(R.id.elevator_game_background);
+        extxt   = (TextView)findViewById(R.id.elevator_explain_text);
+        exnext = (ImageButton)findViewById(R.id.elevator_explain_nextbutton);
 
-        exup = (ImageButton)findViewById(R.id.explain2_up);
-        exdown = (ImageButton)findViewById(R.id.explain2_down);
-        exstop = (ImageButton)findViewById(R.id.explain2_stop);
-        exnext2 = (ImageButton)findViewById(R.id.explain_nextbutton2);
+        exup = (ImageButton)findViewById(R.id.elevator_explain2_up);
+        exdown = (ImageButton)findViewById(R.id.elevator_explain2_down);
+        exstop = (ImageButton)findViewById(R.id.elevator_explain2_stop);
+        exnext2 = (ImageButton)findViewById(R.id.elevator_explain_nextbutton2);
 
-        startfloorbg = (ImageView)findViewById(R.id.game_startfloor_background);
-        startfloortxt = (TextView)findViewById(R.id.game_startfloor_text);
+        startfloorbg = (ImageView)findViewById(R.id.elevator_game_startfloor_background);
+        startfloortxt = (TextView)findViewById(R.id.elevator_game_startfloor_text);
 
-        gameanim = (ImageView)findViewById(R.id.game_anim);
+        gameanim = (ImageView)findViewById(R.id.elevator_game_anim);
 
         ansbtn = new ImageButton[6]; anstxt = new TextView[6];
-        ansbtn[0] = (ImageButton)findViewById(R.id.game_answer_1);
-        anstxt[0] = (TextView)findViewById(R.id.game_answer_1_text);
-        ansbtn[1] = (ImageButton)findViewById(R.id.game_answer_2);
-        anstxt[1] = (TextView)findViewById(R.id.game_answer_2_text);
-        ansbtn[2] = (ImageButton)findViewById(R.id.game_answer_3);
-        anstxt[2] = (TextView)findViewById(R.id.game_answer_3_text);
-        ansbtn[3] = (ImageButton)findViewById(R.id.game_answer_4);
-        anstxt[3] = (TextView)findViewById(R.id.game_answer_4_text);
-        ansbtn[4] = (ImageButton)findViewById(R.id.game_answer_5);
-        anstxt[4] = (TextView)findViewById(R.id.game_answer_5_text);
-        ansbtn[5] = (ImageButton)findViewById(R.id.game_answer_6);
-        anstxt[5] = (TextView)findViewById(R.id.game_answer_6_text);
+        ansbtn[0] = (ImageButton)findViewById(R.id.elevator_game_answer_1);
+        anstxt[0] = (TextView)findViewById(R.id.elevator_game_answer_1_text);
+        ansbtn[1] = (ImageButton)findViewById(R.id.elevator_game_answer_2);
+        anstxt[1] = (TextView)findViewById(R.id.elevator_game_answer_2_text);
+        ansbtn[2] = (ImageButton)findViewById(R.id.elevator_game_answer_3);
+        anstxt[2] = (TextView)findViewById(R.id.elevator_game_answer_3_text);
+        ansbtn[3] = (ImageButton)findViewById(R.id.elevator_game_answer_4);
+        anstxt[3] = (TextView)findViewById(R.id.elevator_game_answer_4_text);
+        ansbtn[4] = (ImageButton)findViewById(R.id.elevator_game_answer_5);
+        anstxt[4] = (TextView)findViewById(R.id.elevator_game_answer_5_text);
+        ansbtn[5] = (ImageButton)findViewById(R.id.elevator_game_answer_6);
+        anstxt[5] = (TextView)findViewById(R.id.elevator_game_answer_6_text);
 
-        mirrorballanim = (ImageView)findViewById(R.id.mirrorballanim);
+        mirrorballanim = (ImageView)findViewById(R.id.elevator_mirrorballanim);
 
         gamebg.setVisibility(View.VISIBLE);
         extxt.setVisibility(View.VISIBLE);
         exnext.setVisibility(View.VISIBLE);
-
-        effect_sound = MediaPlayer.create(this, R.raw.elevator_up);
     }
 
     public void onClickButton(View v)
     {
         switch (v.getId()) {
-            case R.id.explain_nextbutton:
+            case R.id.elevator_explain_nextbutton:
                 gamebg.setImageResource(R.drawable.wharfloor_bg);
                 extxt.setVisibility(View.INVISIBLE);
                 exnext.setVisibility(View.INVISIBLE);
@@ -94,7 +92,7 @@ public class elevator_game extends AppCompatActivity {
 
                 break;
 
-            case R.id.explain2_up:
+            case R.id.elevator_explain2_up:
                 exup.setImageResource(R.drawable.up0002);
                 exdown.setImageResource(R.drawable.up0001);
                 exstop.setImageResource(R.drawable.stop0001);
@@ -103,7 +101,7 @@ public class elevator_game extends AppCompatActivity {
                 effect_sound.start();
                 break;
 
-            case R.id.explain2_down:
+            case R.id.elevator_explain2_down:
                 exdown.setImageResource(R.drawable.up0002);
                 exup.setImageResource(R.drawable.up0001);
                 exstop.setImageResource(R.drawable.stop0001);
@@ -113,7 +111,7 @@ public class elevator_game extends AppCompatActivity {
                 effect_sound.start();
                 break;
 
-            case R.id.explain2_stop:
+            case R.id.elevator_explain2_stop:
                 exup.setImageResource(R.drawable.up0001);
                 exdown.setImageResource(R.drawable.up0001);
                 exstop.setImageResource(R.drawable.stop0002);
@@ -122,7 +120,7 @@ public class elevator_game extends AppCompatActivity {
                 effect_sound.start();
                 break;
 
-            case R.id.explain_nextbutton2:
+            case R.id.elevator_explain_nextbutton2:
                 exup.setVisibility(View.INVISIBLE);
                 exdown.setVisibility(View.INVISIBLE);
                 exstop.setVisibility(View.INVISIBLE);
@@ -131,7 +129,7 @@ public class elevator_game extends AppCompatActivity {
                 gameMainF(true);
                 break;
 
-            case R.id.game_answer_1:
+            case R.id.elevator_game_answer_1:
                 if (answers[0] == CurFloor)
                 {//정답
                     correctF(true);
@@ -142,7 +140,7 @@ public class elevator_game extends AppCompatActivity {
                 }
                 break;
 
-            case R.id.game_answer_2:
+            case R.id.elevator_game_answer_2:
                 if (answers[1] == CurFloor)
                 {//정답
                     correctF(true);
@@ -153,7 +151,7 @@ public class elevator_game extends AppCompatActivity {
                 }
                 break;
 
-            case R.id.game_answer_3:
+            case R.id.elevator_game_answer_3:
                 if (answers[2] == CurFloor)
                 {//정답
                     correctF(true);
@@ -164,7 +162,7 @@ public class elevator_game extends AppCompatActivity {
                 }
                 break;
 
-            case R.id.game_answer_4:
+            case R.id.elevator_game_answer_4:
                 if (answers[3] == CurFloor)
                 {//정답
                     correctF(true);
@@ -175,7 +173,7 @@ public class elevator_game extends AppCompatActivity {
                 }
                 break;
 
-            case R.id.game_answer_5:
+            case R.id.elevator_game_answer_5:
                 if (answers[4] == CurFloor)
                 {//정답
                     correctF(true);
@@ -186,7 +184,7 @@ public class elevator_game extends AppCompatActivity {
                 }
                 break;
 
-            case R.id.game_answer_6:
+            case R.id.elevator_game_answer_6:
                 if (answers[5] == CurFloor)
                 {//정답
                     correctF(true);
@@ -369,7 +367,7 @@ public class elevator_game extends AppCompatActivity {
                         isthere = true;
                 }
                 if (isthere)
-                    answers_[i] = random.nextInt(8) + 1;
+                    answers_[i] = random.nextInt(9) + 1;
                 else
                     break;
             }

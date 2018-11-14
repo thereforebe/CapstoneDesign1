@@ -18,7 +18,13 @@ public class MainActivity extends AppCompatActivity {
     }
     public void onClickButton(View v)
     {
-        Intent intent1 = new Intent(MainActivity.this, elevator_game.class);
-        startActivity(intent1);
+        switch (v.getId()) {
+            case R.id.imageButton1:
+                Intent intent1 = new Intent(MainActivity.this, elevator_game.class);
+                startActivity(intent1);
+            case R.id.imageButton2:
+                Intent intent2 = new Intent(MainActivity.this, animal_game.class);
+                startActivity(intent2);
+        }
     }
 }

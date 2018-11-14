@@ -8,7 +8,7 @@
     tools:context=".elevator_game">
 
     <ImageView
-        android:id="@+id/game_background"
+        android:id="@+id/elevator_game_background"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:scaleType="fitXY"
@@ -21,7 +21,7 @@
         />
 
     <TextView
-        android:id="@+id/explain_text"
+        android:id="@+id/elevator_explain_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:scaleType="fitXY"
@@ -30,7 +30,7 @@
         제시되는 층수를 기억하고,\n
         엘리베이터의 소리를 듣고\n
         마지막으로 멈춘 층수를 보기에서 선택하세요."
-        android:textSize="18sp"
+        android:textSize="22sp"
         android:textColor="#000000"
         android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -42,7 +42,7 @@
         />
 
     <ImageButton
-        android:id="@+id/explain_nextbutton"
+        android:id="@+id/elevator_explain_nextbutton"
         android:layout_width="135dp"
         android:layout_height="58dp"
         android:scaleType="fitXY"
@@ -65,7 +65,7 @@
 
 
     <ImageButton
-        android:id="@+id/explain2_up"
+        android:id="@+id/elevator_explain2_up"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:scaleType="fitXY"
@@ -85,7 +85,7 @@
         />
 
     <ImageButton
-        android:id="@+id/explain2_down"
+        android:id="@+id/elevator_explain2_down"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:scaleType="fitXY"
@@ -106,7 +106,7 @@
         />
 
     <ImageButton
-        android:id="@+id/explain2_stop"
+        android:id="@+id/elevator_explain2_stop"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:scaleType="fitXY"
@@ -125,7 +125,7 @@
         />
 
     <ImageButton
-        android:id="@+id/explain_nextbutton2"
+        android:id="@+id/elevator_explain_nextbutton2"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:scaleType="fitXY"
@@ -148,7 +148,7 @@
     />
 
     <TextView
-        android:id="@+id/game_floor_text"
+        android:id="@+id/elevator_game_floor_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:scaleType="fitXY"
@@ -165,7 +165,7 @@
     />
 
     <ImageView
-        android:id="@+id/game_startfloor_background"
+        android:id="@+id/elevator_game_startfloor_background"
         android:layout_width="300dp"
         android:layout_height="132dp"
         android:scaleType="fitXY"
@@ -179,7 +179,7 @@
         />
 
     <TextView
-        android:id="@+id/game_startfloor_text"
+        android:id="@+id/elevator_game_startfloor_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:scaleType="fitXY"
@@ -197,7 +197,7 @@
     />
 
     <ImageView
-        android:id="@+id/game_anim"
+        android:id="@+id/elevator_game_anim"
         android:layout_width="213dp"
         android:layout_height="282dp"
         android:scaleType="fitXY"
@@ -210,7 +210,7 @@
         />
 
     <ImageButton
-        android:id="@+id/game_answer_1"
+        android:id="@+id/elevator_game_answer_1"
         android:layout_width="170dp"
         android:layout_height="66dp"
         android:scaleType="fitXY"
@@ -229,7 +229,7 @@
         />
 
     <TextView
-        android:id="@+id/game_answer_1_text"
+        android:id="@+id/elevator_game_answer_1_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:scaleType="fitXY"
@@ -248,7 +248,7 @@
         />
 
     <ImageButton
-        android:id="@+id/game_answer_2"
+        android:id="@+id/elevator_game_answer_2"
         android:layout_width="170dp"
         android:layout_height="66dp"
         android:scaleType="fitXY"
@@ -266,7 +266,7 @@
         />
 
     <TextView
-        android:id="@+id/game_answer_2_text"
+        android:id="@+id/elevator_game_answer_2_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:scaleType="fitXY"
@@ -284,7 +284,7 @@
         />
 
     <ImageButton
-        android:id="@+id/game_answer_3"
+        android:id="@+id/elevator_game_answer_3"
         android:layout_width="170dp"
         android:layout_height="66dp"
         android:scaleType="fitXY"
@@ -303,7 +303,7 @@
         />
 
     <TextView
-        android:id="@+id/game_answer_3_text"
+        android:id="@+id/elevator_game_answer_3_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:scaleType="fitXY"
@@ -322,7 +322,7 @@
         />
 
     <ImageButton
-        android:id="@+id/game_answer_4"
+        android:id="@+id/elevator_game_answer_4"
         android:layout_width="170dp"
         android:layout_height="66dp"
         android:scaleType="fitXY"
@@ -341,7 +341,7 @@
         />
 
     <TextView
-        android:id="@+id/game_answer_4_text"
+        android:id="@+id/elevator_game_answer_4_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:scaleType="fitXY"
@@ -360,7 +360,7 @@
         />
 
     <ImageButton
-        android:id="@+id/game_answer_5"
+        android:id="@+id/elevator_game_answer_5"
         android:layout_width="170dp"
         android:layout_height="66dp"
         android:scaleType="fitXY"
@@ -378,7 +378,7 @@
         />
 
     <TextView
-        android:id="@+id/game_answer_5_text"
+        android:id="@+id/elevator_game_answer_5_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:scaleType="fitXY"
@@ -396,7 +396,7 @@
         />
 
     <ImageButton
-        android:id="@+id/game_answer_6"
+        android:id="@+id/elevator_game_answer_6"
         android:layout_width="170dp"
         android:layout_height="66dp"
         android:scaleType="fitXY"
@@ -415,7 +415,7 @@
         />
 
     <TextView
-        android:id="@+id/game_answer_6_text"
+        android:id="@+id/elevator_game_answer_6_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:scaleType="fitXY"
@@ -434,7 +434,7 @@
         />
 
     <ImageView
-        android:id="@+id/mirrorballanim"
+        android:id="@+id/elevator_mirrorballanim"
         android:layout_width="282dp"
         android:layout_height="300dp"
         app:srcCompat="@drawable/mirror_ball_anim"

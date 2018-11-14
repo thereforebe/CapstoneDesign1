@@ -23,7 +23,7 @@
         />
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/imageButton1"
         android:layout_width="135dp"
         android:layout_height="58dp"
         android:scaleType="fitXY"
@@ -42,4 +42,49 @@
         android:onClick="onClickButton"
         />
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="엘리베이터 게임 ->"
+        android:layout_marginBottom="80dp"
+        android:textColor="#FF000000"
+        android:background="#00000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <ImageButton
+        android:id="@+id/imageButton2"
+        android:layout_width="135dp"
+        android:layout_height="58dp"
+        android:scaleType="fitXY"
+        android:layout_marginLeft="300dp"
+        android:layout_marginTop="80dp"
+        android:background="#00000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/bt_start0001"
+
+        tools:layout_editor_absoluteX="424dp"
+        tools:layout_editor_absoluteY="95dp"
+
+        android:onClick="onClickButton"
+        />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="동물 게임 ->"
+        android:layout_marginTop="80dp"
+        android:textColor="#FF000000"
+        android:background="#00000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
 </android.support.constraint.ConstraintLayout>
