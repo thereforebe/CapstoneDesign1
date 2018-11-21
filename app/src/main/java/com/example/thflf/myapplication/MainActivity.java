@@ -20,10 +20,10 @@ public class MainActivity extends AppCompatActivity {
     {
         switch (v.getId()) {
             case R.id.imageButton1:
-                Intent intent1 = new Intent(MainActivity.this, elevator_game.class);
+                Intent intent1 = new Intent(MainActivity.this, audio_1.class);
                 startActivity(intent1);
             case R.id.imageButton2:
-                Intent intent2 = new Intent(MainActivity.this, animal_game.class);
+                Intent intent2 = new Intent(MainActivity.this, audio_2.class);
                 startActivity(intent2);
         }
     }

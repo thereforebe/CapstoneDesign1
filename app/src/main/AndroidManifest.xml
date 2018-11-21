@@ -19,10 +19,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".elevator_game"
+            android:name=".audio_1"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
-            android:name=".animal_game"
+            android:name=".audio_2"
             android:theme="@style/Theme.AppCompat.NoActionBar"/>
     </application>
 
