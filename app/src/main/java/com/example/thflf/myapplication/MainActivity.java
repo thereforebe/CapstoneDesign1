@@ -4,10 +4,12 @@ package com.example.thflf.myapplication;
         import android.content.pm.ActivityInfo;
         import android.support.v7.app.AppCompatActivity;
         import android.os.Bundle;
+        import android.util.Log;
         import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
 
+    int score;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,10 +23,14 @@ public class MainActivity extends AppCompatActivity {
         switch (v.getId()) {
             case R.id.imageButton1:
                 Intent intent1 = new Intent(MainActivity.this, audio_1.class);
-                startActivity(intent1);
+                startActivityForResult(intent1, score);
+                Log.e("asdf","asdf");
+                break;
             case R.id.imageButton2:
                 Intent intent2 = new Intent(MainActivity.this, audio_2.class);
-                startActivity(intent2);
+                startActivityForResult(intent2, score);
+                Log.e("asdf","asdf");
+                break;
         }
     }
 }

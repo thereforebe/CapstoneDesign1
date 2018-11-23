@@ -57,6 +57,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:visibility="invisible"
+        android:onClick="onClickButton"
         />
 
     <ImageButton
@@ -65,7 +66,7 @@
         android:layout_height="110dp"
         android:scaleType="fitXY"
         android:background="#00000000"
-        app:srcCompat="@drawable/chick"
+        app:srcCompat="@drawable/audio_2_chick"
         android:layout_marginRight="133dp"
         android:layout_marginBottom="150dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -73,6 +74,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:visibility="invisible"
+        android:onClick="onClickButton"
         />
 
     <ImageButton
@@ -81,7 +83,7 @@
         android:layout_height="110dp"
         android:scaleType="fitXY"
         android:background="#00000000"
-        app:srcCompat="@drawable/cow"
+        app:srcCompat="@drawable/audio_2_cow"
         android:layout_marginLeft="133dp"
         android:layout_marginBottom="150dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -89,6 +91,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:visibility="invisible"
+        android:onClick="onClickButton"
         />
 
     <ImageButton
@@ -97,14 +100,16 @@
         android:layout_height="95dp"
         android:scaleType="fitXY"
         android:background="#00000000"
-        app:srcCompat="@drawable/dog"
+        app:srcCompat="@drawable/audio_2_dog"
         android:layout_marginLeft="400dp"
         android:layout_marginBottom="150dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:visibility="invisible" />
+        android:visibility="invisible"
+        android:onClick="onClickButton"
+        />
 
 
     <ImageButton
@@ -113,14 +118,16 @@
         android:layout_height="110dp"
         android:scaleType="fitXY"
         android:background="#00000000"
-        app:srcCompat="@drawable/duck"
+        app:srcCompat="@drawable/audio_2_duck"
         android:layout_marginRight="266dp"
         android:layout_marginTop="100dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:visibility="invisible" />
+        android:visibility="invisible"
+        android:onClick="onClickButton"
+        />
 
     <ImageButton
         android:id="@+id/animal_button6"
@@ -128,25 +135,41 @@
         android:layout_height="110dp"
         android:scaleType="fitXY"
         android:background="#00000000"
-        app:srcCompat="@drawable/horse"
+        app:srcCompat="@drawable/audio_2_horse"
         android:layout_marginTop="100dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:visibility="invisible" />
+        android:visibility="invisible"
+        android:onClick="onClickButton"
+        />
     <ImageButton
         android:id="@+id/animal_button7"
         android:layout_width="110dp"
         android:layout_height="96dp"
         android:scaleType="fitXY"
         android:background="#00000000"
-        app:srcCompat="@drawable/lion"
+        app:srcCompat="@drawable/audio_2_lion"
         android:layout_marginLeft="266dp"
         android:layout_marginTop="100dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:visibility="invisible" />
+        android:visibility="invisible"
+        android:onClick="onClickButton"
+        />
+
+    <ImageView
+        android:id="@+id/animal_ox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/audio_2_correct"
+        android:visibility="invisible"
+        />
 </android.support.constraint.ConstraintLayout>

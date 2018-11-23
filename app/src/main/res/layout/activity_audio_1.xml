@@ -20,6 +20,7 @@
         android:visibility="invisible"
         />
 
+
     <TextView
         android:id="@+id/elevator_explain_text"
         android:layout_width="wrap_content"
@@ -30,7 +31,7 @@
         제시되는 층수를 기억하고,\n
         엘리베이터의 소리를 듣고\n
         마지막으로 멈춘 층수를 보기에서 선택하세요."
-        android:textSize="22sp"
+        android:textSize="20sp"
         android:textColor="#000000"
         android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -434,10 +435,10 @@
         />
 
     <ImageView
-        android:id="@+id/elevator_mirrorballanim"
+        android:id="@+id/elevator_ox"
         android:layout_width="282dp"
         android:layout_height="300dp"
-        app:srcCompat="@drawable/mirror_ball_anim"
+        app:srcCompat="@drawable/audio_2_correct"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
