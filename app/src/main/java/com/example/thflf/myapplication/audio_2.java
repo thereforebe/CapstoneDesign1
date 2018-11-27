@@ -1,5 +1,6 @@
 package com.example.thflf.myapplication;
 
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.media.MediaPlayer;
 import android.os.Handler;
@@ -11,7 +12,7 @@ import android.widget.ImageView;
 
 import java.util.Random;
 
-public class audio_2 extends AppCompatActivity {
+public class Audio_2 extends AppCompatActivity {
 
     ImageView gamebg; ImageButton exnext;
     ImageView viewox;
@@ -127,32 +128,32 @@ public class audio_2 extends AppCompatActivity {
         animal_sound.release();
         switch (answer) {//울음소리 재생
             case CAT:
-                animal_sound = MediaPlayer.create(audio_2.this, R.raw.audio_2_cat);
+                animal_sound = MediaPlayer.create(Audio_2.this, R.raw.audio_2_cat);
                 animal_sound.start();
                 break;
 
                 case CHICK:
-                    animal_sound = MediaPlayer.create(audio_2.this, R.raw.audio_2_chick);
+                    animal_sound = MediaPlayer.create(Audio_2.this, R.raw.audio_2_chick);
                     animal_sound.start();
                     break;
                 case COW:
-                    animal_sound = MediaPlayer.create(audio_2.this, R.raw.audio_2_cow);
+                    animal_sound = MediaPlayer.create(Audio_2.this, R.raw.audio_2_cow);
                     animal_sound.start();
                     break;
                 case DOG:
-                    animal_sound = MediaPlayer.create(audio_2.this, R.raw.audio_2_dog);
+                    animal_sound = MediaPlayer.create(Audio_2.this, R.raw.audio_2_dog);
                     animal_sound.start();
                     break;
                 case DUCK:
-                    animal_sound = MediaPlayer.create(audio_2.this, R.raw.audio_2_duck);
+                    animal_sound = MediaPlayer.create(Audio_2.this, R.raw.audio_2_duck);
                     animal_sound.start();
                     break;
                 case HORSE:
-                    animal_sound = MediaPlayer.create(audio_2.this, R.raw.audio_2_horse);
+                    animal_sound = MediaPlayer.create(Audio_2.this, R.raw.audio_2_horse);
                     animal_sound.start();
                     break;
                 case LION:
-                    animal_sound = MediaPlayer.create(audio_2.this, R.raw.audio_2_lion);
+                    animal_sound = MediaPlayer.create(Audio_2.this, R.raw.audio_2_lion);
                     animal_sound.start();
                     break;
             }
@@ -163,6 +164,7 @@ public class audio_2 extends AppCompatActivity {
     private void  correctF()
     {
         touchable = false;
+        score += 10;
         effect_sound.stop();
         effect_sound.release();
         effect_sound= MediaPlayer.create(this, R.raw.o);
@@ -179,13 +181,14 @@ public class audio_2 extends AppCompatActivity {
                     animal_sound.release();
                     effect_sound.stop();
                     effect_sound.release();
-                    setResult(score);
+                    Intent temp = new Intent();
+                    temp.putExtra("Score", score);
+                    setResult(RESULT_OK, temp);
                     finish();
                 }
                 else
                 {
                     viewox.setVisibility(View.INVISIBLE);
-                    score += 10;
                     touchable = true;
                     gameMainF(true);
                 }
@@ -213,7 +216,9 @@ public class audio_2 extends AppCompatActivity {
                     animal_sound.release();
                     effect_sound.stop();
                     effect_sound.release();
-                    setResult(score);
+                    Intent temp = new Intent();
+                    temp.putExtra("Score", score);
+                    setResult(RESULT_OK, temp);
                     finish();
                 }
                 else

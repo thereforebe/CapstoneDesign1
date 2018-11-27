@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".audio"
+            android:name=".AudioActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar">
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
@@ -19,10 +19,10 @@
         </intent-filter>
     </activity>
         <activity
-            android:name=".audio_1"
+            android:name=".Audio_1"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
-            android:name=".audio_2"
+            android:name=".Audio_2"
             android:theme="@style/Theme.AppCompat.NoActionBar"/>
     </application>
 
